@@ -29,7 +29,7 @@ $redirects = array(
     "2013/2013.10.16-kontakt" => "kontakt"
 );
 
-$url = rtrim(trim(filter_input(INPUT_GET, "q")), '/');
+$url = rtrim(trim(filter_input(INPUT_GET, "q") ?? ''), '/');
 if(isset($redirects[$url])) {
     $host = "https://".$_SERVER['HTTP_HOST'];
     $link = $redirects[$url];
