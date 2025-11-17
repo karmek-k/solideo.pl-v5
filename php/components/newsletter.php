@@ -16,8 +16,8 @@ if (defined('NEWSLETTER_SOLI_DEO')):
     $error = "";
 
     if (!empty($_POST['email']) || !empty($_POST['name'])) {
-        $newsletterEmail = filter_var(filter_input(INPUT_POST, "email"), FILTER_SANITIZE_STRING);
-        $newsletterName = filter_var(filter_input(INPUT_POST, "name"), FILTER_SANITIZE_STRING);
+        $newsletterEmail = htmlspecialchars(filter_input(INPUT_POST, "email"));
+        $newsletterName = htmlspecialchars(filter_input(INPUT_POST, "name"));
 
         if (empty($newsletterEmail) || !filter_var($newsletterEmail, FILTER_VALIDATE_EMAIL)) {
             $error .= "&nbsp;Podałeś błędny adres e-mail.&nbsp;";
