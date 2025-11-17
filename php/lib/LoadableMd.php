@@ -151,7 +151,7 @@ class LoadableMd {
         foreach ($iframes[0] as $iframe) {
             $replacer = "";
             preg_match_all("/src=\"([^\"]+)\"/mUi", $iframe, $srcs);
-            if (count($srcs[1] > 0) && (!$isPreview || ($isPreview && $i < 1))) {
+            if (count($srcs[1]) > 0 && (!$isPreview || ($isPreview && $i < 1))) {
                 $iframeWithoutSize = preg_replace("/width=\"[^\"]+\"/mUi", "", $iframe);
                 $iframeWithoutSize = preg_replace("/height=\"[^\"]+\"/mUi", "", $iframeWithoutSize);
                 $replacer = "<div class=\"iframe-container\">" . $iframeWithoutSize . "</div>";
